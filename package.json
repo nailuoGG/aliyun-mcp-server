@@ -1,12 +1,16 @@
 {
   "name": "aliyun-mcp-server",
   "version": "0.1.0",
-  "description": "A Model Context Protocol server",
+  "description": "interacting with Aliyun (Alibaba Cloud) services through This MCP server provides tools.",
   "type": "module",
   "license": "GPL",
   "bugs": "https://github.com/nailuoGG/aliyun-mcp-server/issues",
   "bin": {
     "aliyun-mcp-server": "./build/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nailuoGG/aliyun-mcp-server.git"
   },
   "files": [
     "build"
