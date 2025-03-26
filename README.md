@@ -8,17 +8,40 @@ This MCP server provides tools for interacting with Aliyun (Alibaba Cloud) servi
 - (Future) Manage ECS instances
 - (Future) Deploy serverless functions
 
-## Installation
+## Configuration
 
 1. Build the server:
+
 ```bash
 npm install
 npm run build
 ```
 
-2. Configure the MCP server in Claude's settings:
+### Usage with Claude Desktop
 
-For Claude Desktop app, edit `~/Library/Application Support/Claude/claude_desktop_config.json`:
+Add the server to your claude_desktop_config.json:
+
+```json
+{
+  "mcpServers": {
+    "aliyun": {
+      "command": "node",
+      "args": ["/path/to/aliyun-mcp-server/build/index.js"],
+      "env": {
+        "ALIYUN_ACCESS_KEY_ID": "your-access-key-id",
+        "ALIYUN_ACCESS_KEY_SECRET": "your-access-key-secret",
+        "SLS_ENDPOINT": "cn-hangzhou.log.aliyuncs.com"
+      },
+      "disabled": false,
+      "autoApprove": []
+    }
+  }
+}
+```
+
+### Configuration for Cline
+
+Add the server to your Cline MCP settings file inside VSCode's settings `cline_mcp_settings.json` 
 
 ```json
 {
@@ -38,25 +61,6 @@ For Claude Desktop app, edit `~/Library/Application Support/Claude/claude_deskto
 }
 ```
 
-For Claude VSCode extension, edit `~/Library/Application Support/Code/User/globalStorage/saoudrizwan.claude-dev/settings/cline_mcp_settings.json`:
-
-```json
-{
-  "mcpServers": {
-    "aliyun": {
-      "command": "node",
-      "args": ["/path/to/aliyun-mcp-server/build/index.js"],
-      "env": {
-        "ALIYUN_ACCESS_KEY_ID": "your-access-key-id",
-        "ALIYUN_ACCESS_KEY_SECRET": "your-access-key-secret",
-        "SLS_ENDPOINT": "cn-hangzhou.log.aliyuncs.com"
-      },
-      "disabled": false,
-      "autoApprove": []
-    }
-  }
-}
-```
 
 Replace `/path/to/aliyun-mcp-server` with the actual path to this repository, and provide your Aliyun credentials.
 
